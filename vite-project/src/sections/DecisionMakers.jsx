@@ -1,77 +1,71 @@
 import Container from '../components/Container';
+import StakeholderBlock from '../components/StakeholderBlock';
 import { stakeholders } from '../data/content';
 
 export default function DecisionMakers() {
-  const featured  = stakeholders.find((s) => s.featured);
-  const secondary = stakeholders.filter((s) => !s.featured);
+  const variantById = {
+    ceo: "featured",
+    cfo: "finance",
+    "plant-head": "operations",
+    procurement: "procurement",
+    sustainability: "sustainability",
+  };
 
   return (
     <section
       id="decision-makers"
-      className="py-16 sm:py-20 lg:py-28 bg-[var(--color-gray-light)] overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 bg-[var(--color-gray-light)] overflow-hidden"
     >
-      <Container>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-[0.045]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #1F1F25 1px, transparent 1px),
+            linear-gradient(to bottom, #1F1F25 1px, transparent 1px)
+          `,
+          backgroundSize: '56px 56px',
+        }}
+      />
 
-        {/* Heading */}
-        <div className="mb-10 sm:mb-14 lg:mb-16">
-          <p className="text-[0.65rem] font-bold tracking-[0.25em] text-[var(--color-primary)] uppercase mb-4">
-            Decision-Maker Relevance
-          </p>
-          <h2 className="fluid-h2 font-bold text-[var(--color-dark)] text-balance max-w-2xl">
-            Solar Decisions. Made for Business.
-          </h2>
-          <p className="fluid-body text-[var(--color-gray)] mt-3 max-w-xl text-balance">
+      <Container className="relative z-10">
+        <div className="mb-12 sm:mb-14 lg:mb-16 grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-3 mb-5">
+              <div className="w-5 h-px bg-[var(--color-primary)]" aria-hidden="true" />
+              <span className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.25em] text-[var(--color-primary)] uppercase">
+                Decision Makers
+              </span>
+            </div>
+
+            <h2 className="fluid-h2 font-bold text-[var(--color-dark)] text-balance max-w-2xl">
+              Solar Decisions. Made for Business.
+            </h2>
+          </div>
+
+          <p className="fluid-body text-[var(--color-gray)] lg:col-span-5 lg:pb-2 max-w-xl text-balance">
             One solar project. Multiple business questions.
           </p>
         </div>
 
-        {/* Layout: featured left + 2×2 grid right on lg+ */}
-        <div className="flex flex-col lg:flex-row gap-4 mb-12 sm:mb-14">
-
-          {/* Featured card — CEO/MD */}
-          {featured && (
-            <article className="lg:w-2/5 flex-shrink-0 bg-[var(--color-dark)] p-8 sm:p-10 flex flex-col justify-between min-h-[220px] lg:min-h-[320px]">
-              <div>
-                <span className="inline-block px-2 py-0.5 bg-[var(--color-primary)] text-white text-[0.6rem] font-bold tracking-[0.2em] uppercase rounded-sm mb-6">
-                  {featured.role}
-                </span>
-                <p className="text-xl sm:text-2xl font-bold text-white leading-snug text-balance">
-                  "{featured.question}"
-                </p>
-              </div>
-              <div className="mt-8 h-px w-10 bg-[var(--color-primary)]" aria-hidden="true" />
-            </article>
-          )}
-
-          {/* 2×2 grid of secondary stakeholders */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {secondary.map((s) => (
-              <article
-                key={s.id}
-                className="bg-white border border-gray-100 p-6 sm:p-7 hover:border-[var(--color-primary)] hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <span className="inline-block text-[0.6rem] font-bold tracking-[0.2em] text-[var(--color-primary)] uppercase mb-3">
-                    {s.role}
-                  </span>
-                  <p className="text-base sm:text-lg font-semibold text-[var(--color-dark)] leading-snug text-balance">
-                    "{s.question}"
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-12 lg:auto-rows-fr lg:gap-5 mb-12 sm:mb-14">
+          {stakeholders.map((stakeholder, index) => (
+            <StakeholderBlock
+              key={stakeholder.id}
+              role={stakeholder.role}
+              question={stakeholder.question}
+              variant={variantById[stakeholder.id]}
+              number={String(index + 1).padStart(2, '0')}
+            />
+          ))}
         </div>
 
-        {/* Closing statement */}
-        <div className="border-l-4 border-[var(--color-primary)] pl-5 sm:pl-6 max-w-2xl">
-          <p className="text-base sm:text-lg font-semibold text-[var(--color-dark)] leading-relaxed">
-            Madhav Solar should answer the business case,{' '}
-            <span className="text-[var(--color-gray)] font-normal">not just the technical case.</span>
+        <div className="relative border-t border-gray-200 pt-7 sm:pt-8">
+          <div className="absolute left-0 top-0 h-[2px] w-20 bg-[var(--color-primary)]" aria-hidden="true" />
+          <p className="max-w-3xl text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-[var(--color-dark)] leading-snug text-balance">
+            Madhav Solar answers the business case &mdash; not just the technical case.
           </p>
         </div>
-
       </Container>
     </section>
   );

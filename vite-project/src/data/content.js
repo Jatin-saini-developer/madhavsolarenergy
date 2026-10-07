@@ -185,7 +185,8 @@ export const caseStudy = {
   challenge: "TODO: Approved challenge description",
   approach:  "TODO: Approved Madhav project approach",
   impact:    "TODO: Approved verified project outcome",
-  // imageUrl: "TODO: Path to approved project image — src/assets/images/case-study-project.jpg",
+  imageUrl:  null, // TODO: Replace with approved Madhav project image path.
+  imageAlt:  "Madhav Solar manufacturing project installation",
 };
 
 // ─── Section 9: Assessment Deliverables ───────────────────────────────────────
