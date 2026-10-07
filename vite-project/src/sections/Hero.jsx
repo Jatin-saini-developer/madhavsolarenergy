@@ -149,7 +149,7 @@ export default function Hero() {
             "
           >
             <a
-              href="#assessment"
+              href="#lead-form"
               id="hero-primary-cta"
               className="
                 inline-flex min-h-[54px]
@@ -175,7 +175,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#contact"
+              href="#lead-form"
               id="hero-secondary-cta"
               className="
                 inline-flex min-h-[54px]
