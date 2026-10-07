@@ -45,7 +45,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             {/* ≥ 480px: full label */}
             <a
-              href="#assessment"
+              href="#lead-form"
               id="header-cta"
               className="
                 hidden xs:inline-flex

@@ -59,10 +59,10 @@ export default function StrategicValue() {
               Find the Right Solar Model
               <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
             </a>
-            <a href="#projects" className="text-[13px] font-medium text-[#6B8F71] hover:text-[#3A6B40] flex items-center gap-1 transition-colors">
+            {/* <a href="#projects" className="text-[13px] font-medium text-[#6B8F71] hover:text-[#3A6B40] flex items-center gap-1 transition-colors">
               See our projects
               <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </a>
+            </a> */}
           </div>
         </div>
 
