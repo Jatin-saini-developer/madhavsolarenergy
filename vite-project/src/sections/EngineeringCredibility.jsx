@@ -38,47 +38,78 @@ export default function EngineeringCredibility() {
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-8 items-stretch">
           
           {/* Capability side */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
-            {capabilityBlocks.map((block, idx) => (
-              <div
-                key={block.id}
-                className="
-                  group
-                  bg-white
-                  border border-black/[0.06]
-                  px-6 py-6 sm:px-7 sm:py-7
-                  transition-all duration-300
-                  hover:border-[var(--color-primary)]/30
-                  hover:-translate-y-0.5
-                "
-              >
-                <div className="flex items-start gap-5">
-                  <span
-                    className="
-                      mt-1
-                      text-xs
-                      font-bold
-                      tracking-[0.18em]
-                      text-[var(--color-primary)]
-                      tabular-nums
-                    "
-                  >
-                    0{idx + 1}
-                  </span>
+{/* ── Capability side ───────────────────────────────────── */}
+<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1 sm:gap-4">
+  {capabilityBlocks.map((block, idx) => (
+    <div
+      key={block.id}
+      className="
+        group
+        bg-white
+        border border-black/[0.06]
+        px-6 py-6
+        sm:px-7 sm:py-7
+        lg:px-8 lg:py-7
+        xl:px-9 xl:py-8
+        transition-all duration-300
+        hover:border-[var(--color-primary)]/30
+        hover:-translate-y-0.5
+      "
+    >
+      <div className="flex items-start gap-5 lg:gap-6">
+        
+        {/* Number */}
+        <span
+          className="
+            mt-1
+            w-8 shrink-0
+            text-sm
+            font-bold
+            leading-none
+            tracking-[0.12em]
+            text-[var(--color-primary)]
+            tabular-nums
+            lg:text-[15px]
+          "
+        >
+          {String(idx + 1).padStart(2, '0')}
+        </span>
 
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-[var(--color-dark)] mb-2">
-                      {block.title}
-                    </h3>
+        {/* Content */}
+        <div className="min-w-0">
+          <h3
+            className="
+              mb-2
+              text-xl
+              font-bold
+              leading-tight
+              text-[var(--color-dark)]
+              sm:text-[22px]
+              lg:text-2xl
+              xl:text-[26px]
+            "
+          >
+            {block.title}
+          </h3>
 
-                    <p className="text-sm sm:text-[15px] leading-relaxed text-[var(--color-gray)]">
-                      {block.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p
+            className="
+              max-w-xl
+              text-sm
+              leading-relaxed
+              text-[var(--color-gray)]
+              sm:text-[15px]
+              lg:text-base
+              lg:leading-7
+            "
+          >
+            {block.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
           {/* Image side */}
           <div className="relative min-h-[420px] sm:min-h-[500px] lg:min-h-[620px] overflow-hidden bg-[var(--color-dark)]">
