@@ -79,7 +79,7 @@ export const solarModels = [
     description:      "For businesses with usable rooftop infrastructure and significant daytime consumption.",
     suitedFor:        ["Factories & warehouses", "Daytime heavy consumers", "Owned or long-leased properties"],
     // TODO: Replace null with: import rooftopImg from '../assets/images/solar-model-rooftop.jpg'
-    image:            null,
+    image:            "https://images.openai.com/static-rsc-4/S5wWKv9eeOYPC8MtNcqiayOsvcP86G9d24zg3sH5KmBd_V__qIMx3hdhdez7YDKSU3_CT9tuP9dAynrWNTPQmd8NbUxRRvo70FXc6csz3Mr73TLvsS4jpAwyiu8j7vh7Fez_oeAJwuPuwTwy8SrEUYVKR2W5HtyqTN9dhenq9HR-DnRwkEhwRvoRchjTDpgz?purpose=fullsize",
     imageAlt:         "Manufacturing building with rooftop solar installation",
   },
   {
@@ -90,7 +90,7 @@ export const solarModels = [
     description:      "For larger projects where land and scale create stronger generation potential.",
     suitedFor:        ["Large industrial campuses", "Dedicated land parcels", "High-MW requirements"],
     // TODO: Replace null with: import groundImg from '../assets/images/solar-model-ground-mount.jpg'
-    image:            null,
+    image:            "https://images.openai.com/static-rsc-4/a5aNfyjiFS445t3scAPRtw2GWt4r5niFSETXjTvF3t8s-XZUzA23gxbFcCPlP_7dPCoHHo2QOXBkOurciqEjOElEXaVOBvuPaxSkiCa-Yl4bwyaSqyMwDcg-OibX7fPcktlySIClupq-aM8Q1pFkV_CY0EufJo9v-PWVCnZzvoNIKCwrkfjO3kh9BCj64jpu?purpose=fullsize",
     imageAlt:         "Large industrial ground-mounted solar installation",
   },
   {
@@ -101,7 +101,7 @@ export const solarModels = [
     description:      "For businesses exploring structured long-term renewable power procurement.",
     suitedFor:        ["Long-term energy planning", "Multi-facility enterprises", "Structured ownership models"],
     // TODO: Replace null with: import captiveImg from '../assets/images/solar-model-captive.jpg'
-    image:            null,
+    image:            "https://images.openai.com/static-rsc-4/lwISZM6ay5wojPguJ7AMfwbo4xmicDJx0Vsryi54VU2KOxZcjgBgsJi4TCs2XsMs4PFAqhOGozIzmk7cz8mXIVLmirwdNrIrBTw4iRUk86xCxz9Svnyl9Ztieranfk01YO1sOMN26bX-fru_70GByRo8qg079FYnq8Y9_ZmTU2cGNacInurT6skLwF3AwMsY?purpose=fullsize",
     imageAlt:         "Industrial energy infrastructure and solar generation facility",
   },
   {
@@ -112,7 +112,7 @@ export const solarModels = [
     description:      "For enterprises evaluating renewable energy beyond on-site generation.",
     suitedFor:        ["Grid-connected buyers", "Large consumers (>1 MW)", "Third-party PPA buyers"],
     // TODO: Replace null with: import openAccessImg from '../assets/images/solar-model-open-access.jpg'
-    image:            null,
+    image:            "https://images.openai.com/static-rsc-4/GZVmw8ZOYwho2T1NPk8hUjp7_87D3XlgsZZ2klUpNannKBVwizcT5AQr8WW00Pn3cNkHdTMmmKV9rfC3C3FqKNq42s17uarSxOg8J_XiOcy9CcFpaJUOU0bYKWb3Apvom-U6ao7953xrTkw-Q-rzt16mlSEZSS_-cqt916mamnj4VC-fAMhOLPh7OGKNpOgM?purpose=fullsize",
     imageAlt:         "Large-scale renewable energy infrastructure with grid connection",
   },
 ];
@@ -185,7 +185,7 @@ export const caseStudy = {
   challenge: "TODO: Approved challenge description",
   approach:  "TODO: Approved Madhav project approach",
   impact:    "TODO: Approved verified project outcome",
-  imageUrl:  null, // TODO: Replace with approved Madhav project image path.
+  imageUrl:  "https://madhavsolarenergy.com/wp-content/uploads/2026/08/3-2.jpg", // TODO: Replace with approved Madhav project image path.
   imageAlt:  "Madhav Solar manufacturing project installation",
 };
 

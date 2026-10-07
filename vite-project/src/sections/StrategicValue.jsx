@@ -1,118 +1,99 @@
 import Container from '../components/Container';
-import SectionHeading from '../components/SectionHeading';
-import ValueCard from '../components/ValueCard';
 import { valueCards } from '../data/content';
+// import facilityImg from '../assets/images/strategic-value-facility.jpg'; // swap to your local import
+
+const icons = [
+  <svg viewBox="0 0 24 24" fill="none" stroke="#3A6B40" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>,
+  <svg viewBox="0 0 24 24" fill="none" stroke="#3A6B40" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
+  <svg viewBox="0 0 24 24" fill="none" stroke="#3A6B40" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>,
+  <svg viewBox="0 0 24 24" fill="none" stroke="#3A6B40" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 8 9 8 6a4 4 0 0 1 8 0c0 3-4 6-4 6z"/><path d="M8 17c-2.5-1-4-3-4-5"/><path d="M16 17c2.5-1 4-3 4-5"/></svg>,
+];
+
+const stats = [
+  { num: '200+', label: 'MW Delivered' },
+  { num: '550+', label: 'Projects' },
+  { num: '25 yr', label: 'Performance Warranty' },
+  { num: 'Tier 1', label: 'Hardware Only' },
+];
 
 export default function StrategicValue() {
   return (
-    <section
-      id="strategic-value"
-      className="py-16 sm:py-20 lg:py-28 bg-[var(--color-gray-light)] overflow-hidden"
-    >
-      <Container>
-        {/*
-         * Layout strategy:
-         *   Mobile  (< lg): stacked — heading → value cards → image → CTA
-         *   Desktop (lg+):  side-by-side — content left, image right
-         *
-         * Image is hidden on mobile to avoid a placeholder taking up excessive space.
-         * On desktop it fills the right column as an editorial block.
-         */}
-        <div className="
-          flex flex-col lg:flex-row
-          gap-10 lg:gap-16
-          items-start lg:items-center
-        ">
+    <section id="strategic-value" className="bg-[#F5F6F3] overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] min-h-[600px]">
 
-          {/* ── Left: text column ─────────────────────────── */}
-          <div className="w-full lg:w-1/2 flex-shrink-0">
+        {/* ── LEFT ── */}
+        <div className="flex flex-col justify-between px-10 lg:px-14 py-16">
+          <div>
+            <p className="flex items-center gap-2 text-[11px] font-semibold tracking-[.13em] uppercase text-[#6B8F71] mb-5">
+              <span className="w-[5px] h-[5px] rounded-full bg-[#6B8F71]" />
+              Strategic value
+            </p>
+            <h2 className="font-['Barlow'] text-4xl lg:text-[44px] font-extrabold leading-[1.06] text-[#141A12] max-w-[420px] mb-3">
+              Solar Engineered Around Your Business
+            </h2>
+            <p className="text-sm text-[#6B7A68] leading-relaxed max-w-[400px] mb-10">
+              Your facility, consumption pattern and investment priorities determine the right solar strategy.
+            </p>
+          </div>
 
-            <SectionHeading
-              title="Solar Engineered Around Your Business."
-              subtitle="Your facility, consumption pattern and investment priorities determine the right solar strategy."
-              className="mb-8 sm:mb-10 lg:mb-12"
-            />
+          {/* 2×2 grid */}
+          <div className="grid grid-cols-2 gap-[2px] bg-[#D2D6CD] border-2 border-[#D2D6CD] rounded-xl overflow-hidden mb-9 flex-1">
+            {valueCards.map((card, i) => (
+              <div
+                key={card.id}
+                className="bg-[#F5F6F3] hover:bg-[#ECEEE9] transition-colors duration-200 px-6 py-7 flex flex-col relative group"
+              >
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#6B8F71] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                <div className="w-8 h-8 rounded-lg bg-[#D9E8D4] flex items-center justify-center mb-3.5">
+                  <div className="w-4 h-4">{icons[i]}</div>
+                </div>
+                <p className="text-[10px] font-bold tracking-[.1em] text-[#B8CDB5] mb-1.5">0{i + 1}</p>
+                <h3 className="font-['Barlow'] text-[15px] font-bold text-[#141A12] leading-tight mb-2">{card.title}</h3>
+                <p className="text-[12.5px] text-[#6B7A68] leading-relaxed">{card.description}</p>
+              </div>
+            ))}
+          </div>
 
-            <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
-              {valueCards.map((card) => (
-                <ValueCard
-                  key={card.id}
-                  title={card.title}
-                  description={card.description}
-                  iconPath={card.iconPath}
-                />
-              ))}
-            </div>
-
-            {/* CTA — full-width on mobile, auto on larger */}
-            <a
-              href="#assessment"
-              id="strategic-value-cta"
-              className="
-                inline-flex items-center justify-center gap-2
-                w-full sm:w-auto
-                min-h-[52px] sm:min-h-[48px]
-                px-6 sm:px-8 py-3
-                bg-[var(--color-primary)] text-white
-                text-sm sm:text-base font-semibold tracking-wide
-                rounded-sm
-                hover:bg-[var(--color-dark)] active:bg-[var(--color-dark)]
-                transition-all duration-200
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2
-              "
-            >
-              Find the Right Solar Model for My Business
+          <div className="flex items-center gap-5 flex-wrap">
+            <a href="#assessment" className="inline-flex items-center gap-2 bg-[#141A12] text-[#F5F6F3] text-[13.5px] font-medium px-6 py-3 rounded-md hover:bg-[#2F3A2C] transition-colors">
+              Find the Right Solar Model
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a href="#projects" className="text-[13px] font-medium text-[#6B8F71] hover:text-[#3A6B40] flex items-center gap-1 transition-colors">
+              See our projects
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
             </a>
           </div>
-
-          {/* ── Right: image block ──────────────────────────── */}
-          {/*
-           * Hidden below lg to avoid large placeholder on mobile.
-           * TODO: Replace with real Madhav Solar industrial/engineering image.
-           *       Place it at: src/assets/images/strategic-value-facility.jpg
-           *       Use:
-           *         <img
-           *           src={facilityImg}
-           *           alt="Madhav Solar industrial installation"
-           *           className="w-full h-full object-cover object-center"
-           *         />
-           */}
-          <div className="
-            hidden lg:flex
-            w-full lg:w-1/2
-            relative h-[560px] xl:h-[640px]
-            items-center justify-center
-            bg-gray-200 border border-gray-300
-            overflow-hidden
-            flex-shrink-0
-          ">
-            {/* Inner placeholder content */}
-            <div className="
-              absolute inset-0 flex flex-col items-center justify-center
-              p-8 text-center
-            ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-14 w-14 text-gray-400 mb-4"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <p className="text-gray-500 text-sm font-medium tracking-widest uppercase">
-                [ Editorial / Industrial Image ]
-              </p>
-              <p className="text-gray-400 text-xs mt-2 max-w-xs leading-relaxed">
-                High-quality engineering or facility shot showing scale and premium quality.
-              </p>
-            </div>
-          </div>
-
         </div>
-      </Container>
+
+        {/* ── RIGHT IMAGE ── */}
+        <div className="relative hidden lg:block bg-[#1A2118]">
+          {/* Diagonal left edge */}
+          <div className="absolute top-0 left-0 bottom-0 w-10 z-10"
+            style={{ background: '#F5F6F3', clipPath: 'polygon(0 0, 40px 0, 12px 100%, 0 100%)' }} />
+
+          <img
+            src="https://madhavsolarenergy.com/wp-content/uploads/2026/07/1-1.jpg"
+            alt="Madhav Solar industrial solar installation"
+            className="w-full h-full object-cover opacity-[.88]"
+            style={{ filter: 'saturate(0.85)' }}
+          />
+
+          {/* Gradient + stat strip */}
+          {/* <div className="absolute inset-0"
+            style={{ background: 'linear-gradient(to bottom, transparent 45%, rgba(20,26,18,0.82) 100%)' }} /> */}
+
+          {/* <div className="absolute bottom-0 left-0 right-0 grid grid-cols-2 gap-[1px] bg-white/10">
+            {stats.map((s) => (
+              <div key={s.label} className="px-5 py-5 bg-[rgba(20,26,18,0.55)] backdrop-blur-sm">
+                <p className="font-['Barlow'] text-[26px] font-extrabold text-white leading-none mb-1">{s.num}</p>
+                <p className="text-[10px] font-medium tracking-[.08em] uppercase text-white/55">{s.label}</p>
+              </div>
+            ))}
+          </div> */}
+        </div>
+
+      </div>
     </section>
   );
 }

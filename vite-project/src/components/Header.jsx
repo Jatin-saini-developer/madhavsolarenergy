@@ -53,7 +53,7 @@ export default function Header() {
                 min-h-[44px] px-5 sm:px-6 py-2.5
                 bg-[var(--color-primary)] text-white
                 text-xs sm:text-sm font-semibold tracking-wide leading-none
-                rounded-sm whitespace-nowrap
+                 whitespace-nowrap
                 hover:bg-[var(--color-dark)] active:bg-[var(--color-dark)]
                 transition-all duration-200
                 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2

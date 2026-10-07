@@ -6,111 +6,123 @@ export default function EngineeringCredibility() {
   return (
     <section
       id="engineering-credibility"
-      className="relative py-16 sm:py-20 lg:py-28 bg-white overflow-hidden"
+      className="bg-[#f6f7f5] py-20 sm:py-24 lg:py-32 overflow-hidden"
     >
-      {/* ── Blueprint grid overlay — subtle technical texture ─────────── */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #1F1F25 1px, transparent 1px),
-            linear-gradient(to bottom, #1F1F25 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px',
-        }}
-      />
+      <Container>
+        {/* Header */}
+        <div className="mb-12 sm:mb-14 lg:mb-16">
+          <div className="inline-flex items-center gap-3 mb-5">
+            <span
+              className="block h-px w-6 bg-[var(--color-primary)]"
+              aria-hidden="true"
+            />
 
-      <Container className="relative z-10">
+            <span className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[var(--color-primary)]">
+              Why Madhav Solar
+            </span>
+          </div>
 
-        {/* ── Top row: heading left + image right ──────────────────────── */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-12 mb-14 sm:mb-16 lg:mb-20">
-
-          {/* Heading column */}
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-3 mb-5">
-              <div className="w-5 h-px bg-[var(--color-primary)]" aria-hidden="true" />
-              <span className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.25em] text-[var(--color-primary)] uppercase">
-                Why Madhav Solar
-              </span>
-            </div>
-
-            <h2 className="fluid-h2 font-bold text-[var(--color-dark)] text-balance">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-16 items-end">
+            <h2 className="fluid-h2 font-bold leading-[1.05] text-[var(--color-dark)] text-balance max-w-4xl">
               A Solar Project Is a Long-Term Business Asset.
             </h2>
 
-            <p className="fluid-body text-[var(--color-gray)] mt-4 text-balance leading-relaxed max-w-xl">
-              Choosing an EPC partner is not only about installation. It is about engineering,
-              execution, economics and scale.
+            <p className="fluid-body text-[var(--color-gray)] leading-relaxed max-w-xl lg:pb-1">
+              Choosing an EPC partner is not only about installation. It is about
+              engineering, execution, economics and scale.
             </p>
           </div>
+        </div>
 
-          {/* Image placeholder — desktop only */}
-          {/*
-            TODO: Replace with a real Madhav project / engineering image.
-            Recommended path: src/assets/images/engineering-project.jpg
-            Example:
-              import engineeringImg from '../assets/images/engineering-project.jpg';
-              <img src={engineeringImg} alt="Madhav Solar engineering and project execution" className="w-full h-full object-cover" />
-          */}
-          <div
-            className="
-              hidden lg:flex
-              w-72 xl:w-80 h-48 xl:h-56
-              flex-shrink-0
-              bg-[var(--color-gray-light)] border border-gray-200
-              items-center justify-center
-              overflow-hidden
-            "
-          >
-            {/* Technical grid inside placeholder */}
-            <div className="relative w-full h-full flex items-center justify-center">
+        {/* Main credibility layout */}
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-8 items-stretch">
+          
+          {/* Capability side */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+            {capabilityBlocks.map((block, idx) => (
               <div
-                aria-hidden="true"
-                className="absolute inset-0 opacity-[0.06] pointer-events-none"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(to right, #4AAB3D 1px, transparent 1px), linear-gradient(to bottom, #4AAB3D 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }}
-              />
-              <p className="relative text-xs text-gray-400 tracking-widest uppercase text-center px-4 leading-relaxed">
-                TODO: Engineering /<br />project image
+                key={block.id}
+                className="
+                  group
+                  bg-white
+                  border border-black/[0.06]
+                  px-6 py-6 sm:px-7 sm:py-7
+                  transition-all duration-300
+                  hover:border-[var(--color-primary)]/30
+                  hover:-translate-y-0.5
+                "
+              >
+                <div className="flex items-start gap-5">
+                  <span
+                    className="
+                      mt-1
+                      text-xs
+                      font-bold
+                      tracking-[0.18em]
+                      text-[var(--color-primary)]
+                      tabular-nums
+                    "
+                  >
+                    0{idx + 1}
+                  </span>
+
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-[var(--color-dark)] mb-2">
+                      {block.title}
+                    </h3>
+
+                    <p className="text-sm sm:text-[15px] leading-relaxed text-[var(--color-gray)]">
+                      {block.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Image side */}
+          <div className="relative min-h-[420px] sm:min-h-[500px] lg:min-h-[620px] overflow-hidden bg-[var(--color-dark)]">
+            <img
+              src="https://madhavsolarenergy.com/wp-content/uploads/2026/07/3-2.jpg"
+              alt="Madhav Solar project engineering and execution"
+              className="
+                absolute inset-0
+                w-full h-full
+                object-cover
+                object-center
+                transition-transform duration-700
+                hover:scale-[1.02]
+              "
+            />
+
+            {/* Image overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+
+            {/* Image label */}
+            <div className="absolute left-5 bottom-5 sm:left-7 sm:bottom-7">
+              <p className="text-[0.6rem] sm:text-xs font-semibold tracking-[0.2em] uppercase text-white/70 mb-2">
+                Engineering & Execution
+              </p>
+
+              <p className="text-lg sm:text-xl font-semibold text-white max-w-sm">
+                Built around real operating conditions.
               </p>
             </div>
           </div>
-
         </div>
 
-        {/* ── Four capability blocks ───────────────────────────────────── */}
-        {/*
-         * Mobile  (< sm):  1 column stack
-         * Tablet  (sm):    2×2
-         * Desktop (lg+):   4 columns — one per capability
-         */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 xl:gap-10">
-          {capabilityBlocks.map((block, idx) => (
-            <CapabilityBlock
-              key={block.id}
-              index={idx}
-              title={block.title}
-              description={block.description}
-            />
-          ))}
-        </div>
-
-        {/* ── Strong positioning statement ──────────────────────────────── */}
-        <div className="mt-16 sm:mt-20 lg:mt-24 pt-10 sm:pt-12 border-t border-gray-100">
-          <blockquote className="max-w-3xl">
-            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-dark)] leading-snug text-balance">
-              "Madhav Solar does not only build solar projects.{' '}
+        {/* Positioning statement */}
+        <div className="mt-12 sm:mt-16 lg:mt-20 border-t border-black/[0.08] pt-8 sm:pt-10">
+          <div className="max-w-5xl">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-[1.15] text-[var(--color-dark)] text-balance">
+              Madhav Solar does not only build solar projects.
               <span className="text-[var(--color-primary)]">
+                {' '}
                 It helps businesses make better energy decisions.
-              </span>"
+              </span>
             </p>
-          </blockquote>
+          </div>
         </div>
-
       </Container>
     </section>
   );
