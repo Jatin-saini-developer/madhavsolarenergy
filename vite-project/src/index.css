@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Exo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap');
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+@theme {
+  /* Custom breakpoints */
+  --breakpoint-xs: 30rem; /* 480px */
+
+  --font-sans: 'Albert Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Exo', ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary:      #4AAB3D;
+  --color-primary-dark: #3a8a30;
+  --color-primary-muted:#a0d995;
+  --color-dark:         #1F1F25;
+  --color-dark-alt:     #0a1f3d;
+  --color-gray:         #74787C;
+  --color-gray-light:   #F5F7FA;
+  --color-accent:       #FFA84B;
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Prevent horizontal scroll at any viewport */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-gray);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    line-height: 1.15;
+  }
+
+  /* Fluid hero headline: 2.25rem → 4.5rem */
+  .fluid-h1 {
+    font-size: clamp(2.1rem, 5.5vw + 0.5rem, 4.5rem);
+    line-height: 1.08;
+  }
+
+  /* Fluid section heading: 1.75rem → 3rem */
+  .fluid-h2 {
+    font-size: clamp(1.75rem, 3.5vw + 0.5rem, 3rem);
+    line-height: 1.15;
+  }
+
+  /* Fluid body copy */
+  .fluid-body {
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.2rem);
+    line-height: 1.7;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Ensure touch targets are at least 44px */
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Hide scrollbar width indicator */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Smooth animated scrollbar matching brand */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-dark-alt);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 9999px;
+  }
+
+  /* Respect reduced motion globally */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
