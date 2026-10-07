@@ -37,7 +37,7 @@ export default function StrategicValue() {
           </div>
 
           {/* 2×2 grid */}
-          <div className="grid grid-cols-2 gap-[2px] bg-[#D2D6CD] border-2 border-[#D2D6CD] rounded-xl overflow-hidden mb-9 flex-1">
+          <div className="grid grid-cols-2 gap-[2px] bg-[#D2D6CD] border-2 border-[#D2D6CD] overflow-hidden mb-9 flex-1">
             {valueCards.map((card, i) => (
               <div
                 key={card.id}
@@ -55,7 +55,7 @@ export default function StrategicValue() {
           </div>
 
           <div className="flex items-center gap-5 flex-wrap">
-            <a href="#lead-form" className="inline-flex items-center gap-2 bg-[#141A12] text-[#F5F6F3] text-[13.5px] font-medium px-6 py-3 rounded-md hover:bg-[#2F3A2C] transition-colors">
+            <a href="#lead-form" className="inline-flex items-center gap-2 bg-[#141A12] text-[#F5F6F3] text-[13.5px] font-medium px-6 py-3 hover:bg-[#2F3A2C] transition-colors">
               Find the Right Solar Model
               <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
             </a>
